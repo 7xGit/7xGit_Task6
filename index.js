@@ -11,16 +11,22 @@ function checkAnswer(currentLevel){
     
     if (randomPattern[currentLevel] === userClickedPattern[currentLevel]) {
 
-          if (userClickedPattern.length === randomPattern.length){
-  
-          setTimeout(function () {
+        if (userClickedPattern.length === randomPattern.length){
+
+            setTimeout(function () {
             nextSequence();
-          }, 1000);
-  
+            }, 1000);
+
         }
-  
-      }
+
     }
+    else{
+        // Audio and visual Feedback
+        playSound("wrong");
+        $("#level-title").text("Game Over");
+        startOver();
+    }
+}
 function nextSequence(){
     userClickedPattern = [];
     $("#level-title").text("Level "+level);
@@ -32,7 +38,7 @@ function nextSequence(){
     playSound(randomChosenColor);
 }
 function playSound(name){
-    var audio = new Audio(name+".mp3");
+    var audio = new Audio("assets/"+name+".mp3");
     audio.play();
 }
 function animatePress(currentColour){
