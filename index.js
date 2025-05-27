@@ -11,22 +11,16 @@ function checkAnswer(currentLevel){
     
     if (randomPattern[currentLevel] === userClickedPattern[currentLevel]) {
 
-        if (userClickedPattern.length === randomPattern.length){
-
-            setTimeout(function () {
+          if (userClickedPattern.length === randomPattern.length){
+  
+          setTimeout(function () {
             nextSequence();
-            }, 1000);
-
+          }, 1000);
+  
         }
-
+  
+      }
     }
-    else{
-        // Audio and visual Feedback
-        playSound("wrong");
-        $("#level-title").text("Game Over");
-        startOver();
-    }
-}
 function nextSequence(){
     userClickedPattern = [];
     $("#level-title").text("Level "+level);
