@@ -24,7 +24,7 @@ function checkAnswer(currentLevel){
 function nextSequence(){
     userClickedPattern = [];
     $("#level-title").text("Level "+level);
-    var randomNumber = Math.floor(Math.random());
+    var randomNumber = Math.floor(Math.random()*buttonColors.length);
     var randomChosenColor = buttonColors[randomNumber];
     randomPattern.push(randomChosenColor);
 
