@@ -14,6 +14,7 @@ function checkAnswer(currentLevel){
           if (userClickedPattern.length === randomPattern.length){
   
           setTimeout(function () {
+            level++;
             nextSequence();
           }, 1000);
   
