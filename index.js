@@ -11,16 +11,22 @@ function checkAnswer(currentLevel){
     
     if (randomPattern[currentLevel] === userClickedPattern[currentLevel]) {
 
-          if (userClickedPattern.length === randomPattern.length){
-  
-          setTimeout(function () {
+        if (userClickedPattern.length === randomPattern.length){
+
+            setTimeout(function () {
+            // Next Sequence When correct input
             nextSequence();
-          }, 1000);
-  
+            }, 1000);
+
         }
-  
-      }
+
     }
+    else{
+        $("#level-title").text("Game Over");
+        playSound("wrong");
+        startOver();
+    }
+}
 function nextSequence(){
     userClickedPattern = [];
     $("#level-title").text("Level "+level);
@@ -41,6 +47,12 @@ function animatePress(currentColour){
         $("#"+currentColour).removeClass("pressed");
     }, 100);
 }
+
+$('.btn green,.btn red,.green').on('Click',function(){
+    var id = $(this).attr('id');
+    userClickedPattern+=id;
+    checkAnswer(level);
+});
 
 $(document).keypress(function(){
     if(!started){
